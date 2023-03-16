@@ -11,6 +11,10 @@ session_start();
 		unset($_SESSION);
 		header("Location: login.php");
 	}
+	
+	if ($_SESSION['UserCategory'] !== 'Admin') {
+		exit();
+	}
 
 ?>
 
@@ -18,3 +22,4 @@ session_start();
 
 
 <a href="index.php?logout=true">Logout</a>
+

@@ -1,8 +1,21 @@
 <?php
+$servername = "localhost";
+$database = "technical_test";
+$username = "";
+$password = "";
 
-$db_user = "root";
-$db_pass = '';
-$db_name = "technical_test";
+// Create connection
 
-$db = new PDO('mysql:host=localhost;dbname='. $db_name . ';charset=utf8', $db_user, $db_pass);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+// Check connection
+
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+
+echo "Connected successfully";
+
+mysqli_close($conn);
+
+?>
